@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function PlantsList() {
+    const [plants, setPlants] = useState({});
+
+    const getPlants = () => {
+        axios.get("http://")
+        .then(resp => {
+            setPlants(resp.data);
+        }).catch(err => console.error(err));
+    }
+
+    useEffect(() => {
+        getPlants();
+    }, []);
+
+
     return (
         <div>
             <span>Plant name</span>

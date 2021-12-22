@@ -1,5 +1,5 @@
-import React from "react"
-import { Button, Form, FormGroup, Input,Label, Image} from 'reactstrap';
+import React, {Image} from "react"
+import { Button, Form, FormGroup, Input, Label} from 'reactstrap';
 
 function Plant({details}) {
     return (
@@ -26,6 +26,7 @@ function Plant({details}) {
                 <Label for="plantPhoto">Plant Photo</Label>
                 <Image src={details.image} rounded/>
                 <Input type="file" name="plantPhoto"/>
+                <Button>Submit</Button>
             </FormGroup>
         </Form>
     )

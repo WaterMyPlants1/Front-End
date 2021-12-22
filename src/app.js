@@ -1,21 +1,30 @@
+import React, {Switch} from "react";
+import {Route} from 'react-router-dom';
+
+import { PrivateRoute } from "./components/PrivateRoute";
 import PlantsList from "./components/PlantsList";
+import Plant from "./components/plant";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+
 
 function App() {
     return (
-      <div className="container">
-        <header className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-          <img src="" className="App-logo" alt="logo" />
-         <nav className="my-2 my-md-0 mr-md-3">
-             <a className="p-2 text-dark" href="#">Home</a>
-             <a className="p-2 text-dark" href="#">About</a>
-             <a className="p-2 text-dark" href="#">Plants</a>
-             <a className="p-2 text-dark" href="#">Login</a>
-             <a class="btn btn-outline-primary" href="#">Sign up</a>
-        </nav>
-        </header>
-        <section>
-            <PlantsList></PlantsList>
-        </section>
+      <div className='App'>
+        <Switch>
+        <Route path='/login'>
+          <Login />
+        </Route>
+        <Route path='/signup'>
+          <Signup />
+        </Route>
+        <PrivateRoute path='/plant'>
+          <Plant />
+        </PrivateRoute>
+        <PrivateRoute path='/plant/list'>
+          <PlantsList />
+        </PrivateRoute>
+        </Switch>
       </div>
     );
   }
